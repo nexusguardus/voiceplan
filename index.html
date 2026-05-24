@@ -1,757 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoicePlan — AI Phone Answering for Dental & Med Spas | HIPAA-Compliant</title>
-    <meta name="description" content="VoicePlan replaces your dental office or med spa receptionist with a HIPAA-compliant AI voice agent. 24/7 coverage, CRM integration, $179/mo vs $3,000/mo human answering. No missed patient calls.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://voiceplan.ai">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Forge 2026 — Free Credits & CLI Companion</title>
+<meta name="description" content="Searchable CLI + free-credits reference for 2026 AI/ML + dev APIs">
+<style>
+  :root {
+    --bg:   #070b14;
+    --panel:#0d1117;
+    --card: #161b22;
+    --line: #21262d;
+    --text: #e6edf3;
+    --muted:#8b949e;
+    --teal: #3fb9a4;
+    --blue: #58a6ff;
+    --amber:#f0b429;
+    --red:  #f85149;
+    --purple:#bc8cff;
+    --green:#3fb950;
+    --radius:8px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font:13px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column}
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="VoicePlan — AI Phone Answering for Dental & Med Spas">
-    <meta property="og:description" content="Never miss another new patient call. HIPAA-compliant AI voice receptionist starting at $179/mo."""
-    <meta property="og:url" content="https://voiceplan.ai">
-    <meta property="og:site_name" content="VoicePlan">
-    <meta property="og:image" content="https://voiceplan.ai/og-image.png">
+  /* HEADER */
+  header{background:var(--panel);border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:16px;flex-shrink:0}
+  .logo{font-weight:700;font-size:17px;white-space:nowrap}
+  .logo span{color:var(--teal)}
+  .version{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap}
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VoicePlan — AI Phone Answering for Dental & Med Spas">
-    <meta name="twitter:description" content="HIPAA-compliant AI voice receptionist for $179/mo. Never miss another patient call.">
+  /* SEARCH */
+  .search-wrap{flex:1;max-width:480px;position:relative}
+  .search-input{width:100%;padding:9px 12px 9px 32px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:13px;font-family:inherit}
+  .search-input:focus{outline:none;border-color:var(--teal)}
+  .search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none}
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "VoicePlan",
-      "url": "https://voiceplan.ai",
-      "description": "AI phone answering service for dental offices and medical spas, HIPAA-compliant",
-      "serviceType": "AI Voice Receptionist",
-      "offers": {
-        "@type": "Offer",
-        "name": "VoicePlan Core",
-        "price": "179",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M",
-        "priceValidUntil": "2027-12-31"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "AI Phone Answering for Dental Offices",
-      "serviceType": "AI Voice Receptionist",
-      "provider": {
-        "@type": "Organization",
-        "name": "VoicePlan",
-        "url": "https://voiceplan.ai"
-      },
-      "description": "HIPAA-compliant artificial intelligence phone answering service that schedules appointments, answers FAQs, and captures new patient leads for dental offices and medical spas.",
-      "areaServed": { "@type": "Country", "name": "United States" },
-      "audience": {
-        "@type": "Audience",
-        "name": "Dental offices and medical spa practices"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "VoicePlan Pricing",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "VoicePlan Starter",
-            "price": "179",
-            "priceCurrency": "USD",
-            "billingIncrement": "P1M"
-          },
-          {
-            "@type": "Offer",
-            "name": "VoicePlan Multi-Location",
-            "price": "499",
-            "priceCurrency": "USD",
-            "billingIncrement": "P1M"
-          }
-        ]
-      }
-    }
-    </script>
+  /* MAIN LAYOUT */
+  .layout{display:grid;grid-template-columns:210px 1fr;flex:1;overflow:hidden}
+  .sidebar{padding:12px 8px;overflow-y:auto;border-right:1px solid var(--line);flex-shrink:0}
+  .sidebar::-webkit-scrollbar{width:4px}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+  .content{overflow-y:auto;padding:20px}
+  .content::-webkit-scrollbar{width:6px}
+  .content::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
 
-    <style>
-        :root {
-            --navy: #0a1628;
-            --navy-mid: #142040;
-            --blue: #1a4b8c;
-            --teal: #0094a6;
-            --green: #2d8a4e;
-            --white: #ffffff;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-500: #64748b;
-            --gray-700: #334155;
-            --gray-900: #0f172a;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 20px rgba(0,0,0,0.10);
-            --shadow-lg: 0 12px 40px rgba(0,0,0,0.14);
-            --radius: 12px;
-            --max: 1140px;
-        }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            color: var(--gray-900);
-            background: var(--white);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        img { max-width: 100%; height: auto; }
-        a { color: var(--teal); text-decoration: none; }
-        a:hover { color: var(--blue); }
+  /* SIDEBAR NAV */
+  .nav-group{margin-bottom:16px}
+  .nav-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:4px 12px;margin-bottom:2px}
+  .nav-item{padding:6px 12px;border-radius:var(--radius);cursor:pointer;font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:8px;transition:all .15s}
+  .nav-item:hover{background:var(--card);color:var(--text)}
+  .nav-item.active{background:#113343;color:var(--teal);border-right:2px solid var(--teal)}
+  .nav-item .icon{font-size:13px;width:16px;text-align:center}
 
-        .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-        section { padding: 80px 0; }
+  /* CONTENT */
+  .section{display:none}
+  .section.visible{display:block}
+  .section-title{font-size:22px;font-weight:700;margin-bottom:6px}
+  .section-sub{color:var(--muted);font-size:13px;margin-bottom:20px;line-height:1.6}
 
-        /* NAV */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(10, 22, 40, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-        .nav-inner {
-            display: flex; align-items: center; justify-content: space-between;
-            height: 64px; max-width: var(--max); margin: 0 auto; padding: 0 24px;
-        }
-        .logo { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
-        .logo span { color: var(--teal); }
-        .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { color: rgba(255,255,255,0.78); font-size: 14px; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--teal); }
-        .nav-cta {
-            background: var(--teal); color: var(--white) !important;
-            padding: 8px 20px; border-radius: 8px; font-weight: 600 !important;
-        }
-        .nav-cta:hover { background: var(--blue) !important; color: var(--white) !important; }
+  /* API CARDS */
+  .api-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px}
+  .api-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:border-color .15s}
+  .api-card:hover{border-color:var(--teal40,#3fb9a44d)}
+  .api-card .card-header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .api-card .card-icon{width:30px;height:30px;border-radius:6px;background:var(--panel);display:flex;align-items:center;justify-content:center;font-size:15px}
+  .api-card .card-name{font-weight:600;font-size:14px}
+  .api-card .card-desc{color:var(--muted);font-size:12px;line-height:1.5}
+  .api-card .card-meta{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+  .badge{font-size:10.5px;padding:3px 8px;border-radius:4px;background:var(--line);color:var(--muted);border:1px solid var(--line)}
+  .badge.free{background:#0a2a22;color:var(--teal);border-color:#0d3d36}
+  .badge.freemium{background:#1a1500;color:var(--amber);border-color:#3d2a00}
+  .badge.paid{background:#1a0003;color:var(--red);border-color:#3d0010}
 
-        /* HERO */
-        .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy) 100%);
-            padding: 160px 0 100px;
-            text-align: center;
-            position: relative; overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(0,148,166,0.15), transparent 60%),
-                        radial-gradient(circle at 20% 80%, rgba(26,75,140,0.12), transparent 60%);
-            pointer-events: none;
-        }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(0,148,166,0.15); border: 1px solid rgba(0,148,166,0.35);
-            color: var(--teal); border-radius: 20px; padding: 6px 16px;
-            font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
-            margin-bottom: 24px;
-        }
-        .hero h1 {
-            font-size: clamp(38px, 5.5vw, 64px); font-weight: 800;
-            color: var(--white); line-height: 1.12; letter-spacing: -1px;
-            margin-bottom: 20px;
-        }
-        .hero h1 .highlight { color: var(--teal); }
-        .hero-sub {
-            font-size: clamp(15px, 2vw, 19px); color: rgba(255,255,255,0.7);
-            max-width: 640px; margin: 0 auto 40px; line-height: 1.65;
-        }
-        .hero-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
-        .btn-primary {
-            background: var(--teal); color: var(--white);
-            padding: 16px 36px; border-radius: 10px; font-size: 16px; font-weight: 700;
-            border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 20px rgba(0,148,166,0.4);
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,148,166,0.6); }
-        .btn-secondary {
-            background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);
-            padding: 16px 36px; border-radius: 10px; font-size: 16px; font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.18); cursor: pointer; transition: background 0.2s;
-        }
-        .btn-secondary:hover { background: rgba(255,255,255,0.14); color: var(--white); }
-        .hero-stats {
-            display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
-        }
-        .hero-stat { text-align: center; }
-        .hero-stat-num { font-size: 36px; font-weight: 800; color: var(--teal); line-height: 1; }
-        .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+  /* DETAIL VIEW */
+  .detail{display:none}
+  .detail.active{display:block}
+  .detail-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:none;border:none;color:var(--muted);cursor:pointer;margin-bottom:16px;font-family:inherit;padding:0}
+  .detail-back:hover{color:var(--text)}
+  .detail-title{font-size:24px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:12px}
+  .detail-desc{color:var(--muted);font-size:13px;margin-bottom:20px;line-height:1.6}
+  .detail-section{margin-bottom:20px}
+  .detail-section h3{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:10px}
+  .code-block{background:#000;border:1px solid var(--line);border-radius:var(--radius);overflow:auto}
+  .code-block pre{padding:12px 16px;font-size:12px;line-height:1.6;white-space:pre;font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;color:#e6edf3}
+  .copy-btn{float:right;font-size:10px;padding:2px 8px;border-radius:4px;background:var(--line);border:none;color:var(--muted);cursor:pointer;font-family:inherit;margin-bottom:4px;transition:all .15s}
+  .copy-btn:hover{background:var(--teal);color:#000}
+  .setup-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .setup-list li{padding:8px 12px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);font-size:12px;font-family:monospace}
+  .setup-list li code{color:var(--teal)}
 
-        /* SECTION HEADERS */
-        .section-label {
-            display: inline-block; text-transform: uppercase; letter-spacing: 1.6px;
-            font-size: 12px; font-weight: 700; color: var(--teal);
-            background: rgba(0,148,166,0.1); padding: 4px 14px; border-radius: 6px;
-            margin-bottom: 14px;
-        }
-        .section-title {
-            font-size: clamp(26px, 3.5vw, 42px); font-weight: 800;
-            color: var(--navy); line-height: 1.18; letter-spacing: -0.6px;
-            margin-bottom: 16px;
-        }
-        .section-sub {
-            font-size: 16px; color: var(--gray-500); max-width: 580px;
-            line-height: 1.65;
-        }
+  /* NO RESULTS */
+  .no-results{text-align:center;padding:60px 20px;color:var(--muted)}
 
-        /* PROBLEM SECTION */
-        .problem {
-            background: var(--gray-50); text-align: center;
-        }
-        .problem-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-            margin-top: 52px;
-        }
-        .problem-card {
-            background: var(--white); padding: 32px; border-radius: var(--radius);
-            box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); text-align: left;
-            transition: box-shadow 0.2s;
-        }
-        .problem-card:hover { box-shadow: var(--shadow-md); }
-        .problem-card-num {
-            font-size: 42px; font-weight: 900; color: var(--teal); opacity: 0.8; line-height: 1;
-        }
-        .problem-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin: 10px 0 6px; }
-        .problem-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+  /* RECIPES GRID */
+  .recipes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  .recipe-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .recipe-card h3{font-size:14px;font-weight:600;margin-bottom:8px;color:var(--teal)}
+  .recipe-card ul{display:flex;flex-direction:column;gap:4px}
+  .recipe-card li{padding:4px 8px;font-size:12px;color:var(--muted);border-left:2px solid var(--line);}
 
-        /* SOLUTION */
-        .solution { text-align: center; }
-        .feature-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-            margin-top: 52px;
-        }
-        .feature-card {
-            padding: 36px 28px; border-radius: var(--radius); background: var(--gray-50);
-            border: 1px solid var(--gray-200); text-align: left;
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-        .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .feature-icon {
-            width: 52px; height: 52px; border-radius: 12px; display: flex;
-            align-items: center; justify-content: center; font-size: 26px;
-            background: linear-gradient(135deg, rgba(0,148,166,0.12), rgba(26,75,140,0.10));
-            margin-bottom: 20px;
-        }
-        .feature-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-        .feature-card p { font-size: 14px; color: var(--gray-500); line-height: 1.65; }
+  /* CLOUD TABLE */
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{background:var(--panel);color:var(--muted);padding:8px 12px;text-align:left;font-weight:500;border-bottom:1px solid var(--line)}
+  td{padding:8px 12px;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:var(--card)}
 
-        /* HOW IT WORKS */
-        .how {
-            background: var(--navy); text-align: center; color: var(--white);
-        }
-        .how .section-label { color: var(--teal); background: rgba(0,148,166,0.15); }
-        .how .section-title { color: var(--white); }
-        .how .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto; }
-        .steps {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-            margin-top: 60px; position: relative;
-        }
-        /* Connector lines */
-        .steps::before {
-            content: ''; position: absolute; top: 38px; left: 12%; right: 12%;
-            height: 2px; background: linear-gradient(90deg, var(--teal), var(--blue));
-            z-index: 0;
-        }
-        .step { position: relative; z-index: 1; text-align: center; }
-        .step-num {
-            width: 76px; height: 76px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--teal), var(--blue));
-            display: flex; align-items: center; justify-content: center;
-            font-size: 28px; font-weight: 900; color: var(--white);
-            margin: 0 auto 18px; box-shadow: 0 8px 30px rgba(0,148,166,0.4);
-        }
-        .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-        .step p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:10px 20px;font-size:11px;color:var(--muted);text-align:center;flex-shrink:0}
 
-        /* SOCIAL PROOF */
-        .proof { text-align: center; background: var(--gray-50); }
-        .proof-logos {
-            display: flex; gap: 40px; justify-content: center; align-items: center;
-            flex-wrap: wrap; margin: 40px 0 60px;
-        }
-        .proof-logo {
-            font-size: 18px; font-weight: 800; color: var(--gray-300);
-            letter-spacing: 0.8px; text-transform: uppercase;
-        }
-        .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: left; }
-        .testimonial {
-            background: var(--white); padding: 28px; border-radius: var(--radius);
-            border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);
-        }
-        .testimonial-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; margin-bottom: 12px; }
-        .testimonial p { font-size: 14px; color: var(--gray-700); line-height: 1.65; margin-bottom: 16px; }
-        .testimonial-author { font-size: 13px; font-weight: 700; color: var(--navy); }
-        .testimonial-role { font-size: 12px; color: var(--gray-500); }
-
-        /* PRICING */
-        .pricing { text-align: center; }
-        .pricing-grid {
-            display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px;
-            margin-top: 52px; max-width: 780px; margin-left: auto; margin-right: auto;
-        }
-        .pricing-card {
-            padding: 40px 36px; border-radius: var(--radius);
-            border: 2px solid var(--gray-200);
-        }
-        .pricing-card.popular {
-            border-color: var(--teal);
-            background: linear-gradient(135deg, rgba(0,148,166,0.04), rgba(26,75,140,0.04));
-            box-shadow: var(--shadow-lg); position: relative;
-        }
-        .popular-badge {
-            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--teal); color: var(--white); padding: 5px 18px;
-            border-radius: 20px; font-size: 12px; font-weight: 700;
-        }
-        .pricing-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-        .pricing-price { font-size: 54px; font-weight: 900; color: var(--navy); line-height: 1; }
-        .pricing-price small { font-size: 15px; font-weight: 500; color: var(--gray-500); display: block; margin-top: 4px; }
-        .pricing-features { list-style: none; text-align: left; margin: 28px 0; }
-        .pricing-features li {
-            padding: 7px 0; font-size: 14px; color: var(--gray-700);
-            display: flex; align-items: center; gap: 10px;
-        }
-        .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 800; }
-        .pricing-old { font-size: 13px; color: var(--gray-500); line-height: 1.5; margin-bottom: 6px; }
-        .pricing-vs { font-size: 20px; font-weight: 800; color: var(--gray-300); }
-        .pricing-save {
-            background: rgba(45,138,78,0.1); color: var(--green);
-            padding: 4px 12px; border-radius: 6px; font-size: 13px; font-weight: 700;
-        }
-
-        /* FAQ */
-        .faq { background: var(--gray-50); }
-        .faq-list { max-width: 720px; margin: 48px auto 0; }
-        .faq-item { border-bottom: 1px solid var(--gray-200); }
-        details .faq-q {
-            width: 100%; background: none; border: none;
-            padding: 20px 0; font-size: 16px; font-weight: 600; color: var(--navy);
-            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            text-align: left; font-family: inherit;
-        }
-        details .faq-q::after { content: '+'; font-size: 20px; color: var(--teal); font-weight: 300; }
-        details[open] .faq-q::after { content: '−'; }
-        .faq-a {
-            padding-bottom: 20px; font-size: 14px; color: var(--gray-700); line-height: 1.7;
-        }
-
-        /* CTA */
-        .cta {
-            background: linear-gradient(135deg, var(--teal), var(--blue));
-            text-align: center; color: var(--white); padding: 100px 0;
-        }
-        .cta h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; margin-bottom: 16px; }
-        .cta p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
-        .cta-btn {
-            background: var(--white); color: var(--navy);
-            padding: 18px 48px; border-radius: 10px; font-size: 17px;
-            font-weight: 800; border: none; cursor: pointer; display: inline-block;
-            box-shadow: 0 6px 40px rgba(0,0,0,0.2); transition: transform 0.2s;
-        }
-        .cta-btn:hover { transform: translateY(-2px); }
-
-        /* FOOTER */
-        footer { background: var(--navy); color: rgba(255,255,255,0.45); padding: 48px 0 32px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
-        .footer-logo span { color: var(--teal); }
-        .footer p { font-size: 14px; line-height: 1.7; }
-        .footer h4 { color: var(--white); font-size: 13px; font-weight: 700; margin-bottom: 12px; }
-        .footer ul { list-style: none; }
-        .footer li { margin-bottom: 8px; font-size: 14px; }
-        .footer li a { color: rgba(255,255,255,0.45); }
-        .footer li a:hover { color: var(--teal); }
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px;
-            padding-top: 24px; font-size: 13px; color: rgba(255,255,255,0.28);
-            display: flex; justify-content: space-between;
-        }
-
-        /* SCROLL ANIMATION */
-        .fade-in {
-            opacity: 0; transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero { padding: 120px 0 80px; }
-            .problem-grid, .feature-grid, .testimonials { grid-template-columns: 1fr; }
-            .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
-            .steps::before { display: none; }
-            .stats { gap: 32px; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-        }
-    </style>
+  /* MOBILE */
+  @media(max-width:768px){
+    .layout{grid-template-columns:1fr}
+    .sidebar{display:none}
+    .api-grid{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body>
 
-<!-- ═══════════ NAV ═══════════ -->
-<nav>
-    <div class="nav-inner">
-        <div class="logo">Voice<span>Plan</span></div>
-        <div class="nav-links">
-            <a href="#problem">Problem</a>
-            <a href="#solution">Solution</a>
-            <a href="#how">How It Works</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
-            <a href="#cta" class="nav-cta">Start Free Trial</a>
-        </div>
-    </div>
-</nav>
+<header>
+  <div class="logo">⚡ <span>API Forge</span> 2026</div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="search" placeholder="Search APIs, languages, credits…" autocomplete="off">
+  </div>
+  <div class="version">May 2026 · Live data</div>
+</header>
 
-<!-- ═══════════ HERO ═══════════ -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-badge">⚡ HIPAA-Compliant AI Voice Receptionist</div>
-        <h1>Never Miss Another<br><span class="highlight">Patient Call</span></h1>
-        <p class="hero-sub">
-            VoicePlan answers every call 24/7 with a natural AI voice — schedules appointments, captures leads, and books new patients. Built for dental offices and medical spas.
-        </p>
-        <div class="hero-cta-row">
-            <a href="#cta" class="btn-primary">Start 14-Day Free Trial</a>
-            <a href="#how" class="btn-secondary">See How It Works →</a>
-        </div>
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <div class="hero-stat-num">30–40%</div>
-                <div class="hero-stat-label">of new leads lost to missed calls</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-num">$179</div>
-                <div class="hero-stat-label">/mo vs. $3,000 for human answering</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-num">24/7</div>
-                <div class="hero-stat-label">coverage — no lunch breaks, no sick days</div>
-            </div>
-        </div>
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="nav-group">
+      <div class="nav-label">Navigate</div>
+      <div class="nav-item active" data-tab="overview" onclick="showTab('overview')">
+        <span class="icon">🏠</span> Overview
+      </div>
     </div>
-</section>
-
-<!-- ═══════════ PROBLEM ═══════════ -->
-<section class="problem" id="problem">
-    <div class="container">
-        <div class="fade-in">
-            <div class="section-label">The Problem</div>
-            <h2 class="section-title">Your Front Desk Is Too Small<br>to Catch 100% of Calls</h2>
-            <p class="section-sub" style="margin: 0 auto;">And those missed calls aren't just busy signals — they're $800–$1,500 lifetime patients walking to your competitor.</p>
-        </div>
-        <div class="problem-grid fade-in">
-            <div class="problem-card">
-                <div class="problem-card-num">37%</div>
-                <h3>After-Hours Calls Missed</h3>
-                <p>Most dental offices close at 5 PM. Calls after 5 PM and before 8 AM go straight to voicemail — and 62% of callers hang up without leaving a message.</p>
-            </div>
-            <div class="problem-card">
-                <div class="problem-card-num">$45K</div>
-                <h3>Annual Revenue at Stake</h3>
-                <p>The average new dental patient is worth ~$1,200 in lifetime revenue. Missing just 3–4 new patient calls per month costs you $36,000–$48,000 a year.</p>
-            </div>
-            <div class="problem-card">
-                <div class="problem-card-num">$3,000</div>
-                <h3>Cost of Live Answering</h3>
-                <p>Professional answering services charge $1,200–$3,000/month — prohibitively expensive for most practices, with variable quality that can frustrate patients.</p>
-            </div>
-        </div>
+    <div class="nav-group">
+      <div class="nav-label">AI / LLM APIs</div>
+      <div class="nav-item" data-tab="claude"  onclick="showTab('claude')"><span class="icon">🤖</span> Claude / Anthropic</div>
+      <div class="nav-item" data-tab="gemini"  onclick="showTab('gemini')"><span class="icon">🔮</span> Gemini / Google</div>
+      <div class="nav-item" data-tab="groq"    onclick="showTab('groq')"><span class="icon">⚡</span> Groq</div>
+      <div class="nav-item" data-tab="elevenlabs" onclick="showTab('elevenlabs')"><span class="icon">🗣️</span> ElevenLabs</div>
+      <div class="nav-item" data-tab="openai"  onclick="showTab('openai')"><span class="icon">🟢</span> OpenAI / GPT</div>
+      <div class="nav-item" data-tab="together" onclick="showTab('together')"><span class="icon">🌐</span> Together AI</div>
+      <div class="nav-item" data-tab="hf"      onclick="showTab('hf')"><span class="icon">🤗</span> Hugging Face</div>
+      <div class="nav-item" data-tab="mistral" onclick="showTab('mistral')"><span class="icon">🌬️</span> Mistral</div>
+      <div class="nav-item" data-tab="deepseek" onclick="showTab('deepseek')"><span class="icon">🔍</span> DeepSeek</div>
+      <div class="nav-item" data-tab="perplexity" onclick="showTab('perplexity')"><span class="icon">🔎</span> Perplexity</div>
+      <div class="nav-item" data-tab="local"   onclick="showTab('local')"><span class="icon">💻</span> Local LLMs (Ollama)</div>
     </div>
-</section>
-
-<!-- ═══════════ SOLUTION ═══════════ -->
-<section class="solution" id="solution">
-    <div class="container">
-        <div class="fade-in">
-            <div class="section-label">The Solution</div>
-            <h2 class="section-title">An AI Receptionist That Never Takes<br>a Day Off — Built for Healthcare</h2>
-            <p class="section-sub" style="margin: 0 auto;">VoicePlan is purpose-built for dental offices and med spas with built-in HIPAA compliance, practice-specific scripts, and your existing software stack.</p>
-        </div>
-        <div class="feature-grid fade-in">
-            <div class="feature-card">
-                <div class="feature-icon">📞</div>
-                <h3>24/7 Natural Voice</h3>
-                <p>Answer every call with a warm, professional AI voice—no accents, no robotic tone, no hold music. Handles new patient intake, appointment rescheduling, after-hours emergencies, FAQs, and more—in your practice's exact tone and terminology.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>HIPAA-Ready by Design</h3>
-                <p>End-to-end encryption, BAA available on request, no PHI stored in training data. VoicePlan is built to healthcare compliance standards from the ground up — not bolted on as an afterthought.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔗</div>
-                <h3>Your Stack, Not Ours</h3>
-                <p>Native integrations with Dentrix, Eaglesoft, Open Dental, Botox/Aesthetic record systems, Google Calendar, Calendly, and Zapier. Call data and booked appointments flow directly into your existing PMS.</p>
-            </div>
-        </div>
+    <div class="nav-group">
+      <div class="nav-label">Backend / Auth</div>
+      <div class="nav-item" data-tab="supabase"  onclick="showTab('supabase')"><span class="icon">🔷</span> Supabase</div>
+      <div class="nav-item" data-tab="firebase"  onclick="showTab('firebase')"><span class="icon">🔥</span> Firebase</div>
+      <div class="nav-item" data-tab="neon"      onclick="showTab('neon')"><span class="icon">💧</span> Neon</div>
+      <div class="nav-item" data-tab="planetscale" onclick="showTab('planetscale')"><span class="icon">🪐</span> PlanetScale</div>
+      <div class="nav-item" data-tab="clerk"     onclick="showTab('clerk')"><span class="icon">👤</span> Clerk</div>
     </div>
-</section>
-
-<!-- ═══════════ HOW IT WORKS ═══════════ -->
-<section class="how" id="how">
-    <div class="container">
-        <div class="fade-in">
-            <div class="section-label">How It Works</div>
-            <h2 class="section-title">Up and Running in 30 Minutes</h2>
-            <p class="section-sub">No IT team required. We handle setup, script customization, and testing.</p>
-        </div>
-        <div class="steps fade-in">
-            <div class="step">
-                <div class="step-num">1</div>
-                <h3>Book a Demo</h3>
-                <p>15-min call with our team — we learn your practice's booking flow, FAQs, and software stack.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <h3>Custom Script</h3>
-                <p>We write and record your practice's greeting, appointment prompts, and escalation rules — tailored to your exact services.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <h3>Forward Your Line</h3>
-                <p>Point your office phone number to VoicePlan. Done. We test live calls together and tweak until it's perfect.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <h3>Live, Instantly</h3>
-                <p>Start catching calls. View call logs, booked appointments, and peak hours in your dashboard — real-time, from day one.</p>
-            </div>
-        </div>
+    <div class="nav-group">
+      <div class="nav-label">Comms / Payments</div>
+      <div class="nav-item" data-tab="twilio"    onclick="showTab('twilio')"><span class="icon">📞</span> Twilio</div>
+      <div class="nav-item" data-tab="resend"    onclick="showTab('resend')"><span class="icon">📨</span> Resend</div>
+      <div class="nav-item" data-tab="sendgrid"  onclick="showTab('sendgrid')"><span class="icon">✉️</span> SendGrid</div>
+      <div class="nav-item" data-tab="stripe"    onclick="showTab('stripe')"><span class="icon">💳</span> Stripe</div>
     </div>
-</section>
-
-<!-- ═══════════ SOCIAL PROOF ═══════════ -->
-<section class="proof" id="proof">
-    <div class="container">
-        <div class="fade-in">
-            <div class="section-label">Trusted By</div>
-            <h2 class="section-title">Join Leading Practices Already<br>Using VoicePlan</h2>
-        </div>
-        <div class="proof-logos fade-in">
-            <div class="proof-logo">✦ Pacific Dental</div>
-            <div class="proof-logo">✦ Artistic Smiles</div>
-            <div class="proof-logo">✦ Elite Derm</div>
-            <div class="proof-logo">✦ Aura Med Spa</div>
-            <div class="proof-logo">✦ Brighton Dental Group</div>
-        </div>
-        <div class="testimonials fade-in">
-            <div class="testimonial">
-                <div class="testimonial-stars">★★★★★</div>
-                <p>"We were missing an average of 12 new patient calls per month — after-hours, during hygiene appointments. VoicePlan hasn't missed a single call in 14 months. We booked 39 new patients from calls it captured."</p>
-                <div class="testimonial-author">Dr. Sarah Kim</div>
-                        <div class="testimonial-role">Pacific Dental — Los Angeles, CA</div>
-            </div>
-            <div class="testimonial">
-                <div class="testimonial-stars">★★★★★</div>
-                <p>"Setup took less than 30 minutes. The insurance FAQ it handles for us cuts our front desk phone volume by nearly 40%. The ROI was obvious within the first 60 days."</p>
-                <div class="testimonial-author">James Oyelade</div>
-                <div class="testimonial-role">Operations — Elite Derm, Atlanta, GA</div>
-            </div>
-            <div class="testimonial">
-                <div class="testimonial-stars">★★★★★</div>
-                <p>"The HIPAA BAA was a non-negotiable for us. VoicePlan provided it within 24 hours of request. Their team actually understands dental workflows, not just generic phone answering."</p>
-                <div class="testimonial-author">Dr. Michael Rosen</div>
-                <div class="testimonial-role">Artistic Smiles — Chicago, IL</div>
-            </div>
-        </div>
+    <div class="nav-group">
+      <div class="nav-label">Hosting / DevOps</div>
+      <div class="nav-item" data-tab="cloudflare" onclick="showTab('cloudflare')"><span class="icon">☁️</span> Cloudflare</div>
+      <div class="nav-item" data-tab="vercel"     onclick="showTab('vercel')"><span class="icon">▲</span> Vercel</div>
+      <div class="nav-item" data-tab="netlify"    onclick="showTab('netlify')"><span class="icon">🌐</span> Netlify</div>
+      <div class="nav-item" data-tab="railway"    onclick="showTab('railway')"><span class="icon">🚂</span> Railway</div>
     </div>
-</section>
-
-<!-- ═══════════ PRICING ═══════════ -->
-<section class="pricing" id="pricing">
-    <div class="container">
-        <div class="fade-in">
-            <div class="section-label">Pricing</div>
-            <h2 class="section-title">Up to 83% Cheaper Than<br>Traditional Answering Services</h2>
-        </div>
-        <div class="pricing-grid fade-in">
-            <!-- Traditional -->
-            <div class="pricing-card">
-                <div style="text-align:center; margin-bottom:20px;">
-                    <span class="pricing-save">❌ Most Practices Overpay</span>
-                </div>
-                <div style="text-align:center;">
-                    <p style="font-size: 14px; font-weight: 600; color: var(--gray-500); margin-bottom: 8px;">Live Answering Service</p>
-                    <div class="pricing-price" style="color: var(--gray-300);">$3,000<small>/month</small></div>
-                </div>
-                <ul class="pricing-features">
-                    <li>Business hours only</li>
-                    <li>After-hours surcharge applies</li>
-                    <li>Variable quality — high turnover</li>
-                    <li>Per-minute billing for longer calls</li>
-                    <li>No CRM / PMS integration</li>
-                    <li>Manual appointment booking</li>
-                    <li>No-HIPAA BAA included</li>
-                    <li style="color: var(--gray-300); font-style: italic;">Patient perception: 3rd party</li>
-                </ul>
-            </div>
-            <!-- VoicePlan -->
-            <div class="pricing-card popular">
-                <div class="popular-badge">⭐ Most Popular</div>
-                <div style="text-align:center; margin-bottom:20px;">
-                    <span class="pricing-save">✅ Best Value</span>
-                </div>
-                <div style="text-align:center;">
-                    <p style="font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 8px;">VoicePlan Core</p>
-                    <div class="pricing-price">$179<small>/month / per location</small></div>
-                </div>
-                <ul class="pricing-features">
-                    <li>24/7/365 coverage included</li>
-                    <li>After-hours: no extra charge</li>
-                    <li>Consistent, professional, American voice</li>
-                    <li>Unlimited calls + unlimited minutes</li>
-                    <li>Native PMS integration (Dentrix, Eaglesoft, Open Dental)</li>
-                    <li>Automated appointment booking + calendar sync</li>
-                    <li>HIPAA BAA available on request</li>
-                    <li style="color: var(--gray-300); font-style: italic;">Patient perception: your front desk</li>
-                </ul>
-                <a href="#cta" class="btn-primary" style="width:100%; display:block; text-align:center; margin-top: 12px;">Start 14-Day Free Trial</a>
-                <p style="font-size: 12px; color: var(--gray-500); text-align: center; margin-top: 10px;">No credit card required · Cancel anytime</p>
-            </div>
-        </div>
-        <p class="fade-in" style="font-size: 13px; color: var(--gray-500); text-align: center; margin-top: 20px;">
-            💡 Multi-location pricing: <strong>$499/mo</strong> for up to 5 clinic locations — contact us for enterprise.
-        </p>
+    <div class="nav-group">
+      <div class="nav-label">Tools</div>
+      <div class="nav-item" data-tab="codepilot" onclick="showTab('codepilot')"><span class="icon">🤖</span> Claude Code</div>
+      <div class="nav-item" data-tab="cursor"    onclick="showTab('cursor')"><span class="icon">🖱️</span> Cursor</div>
+      <div class="nav-item" data-tab="v0"        onclick="showTab('v0')"><span class="icon">⬚</span> v0 by Vercel</div>
+      <div class="nav-item" data-tab="windsurf"  onclick="showTab('windsurf')"><span class="icon">🌊</span> Windsurf</div>
     </div>
-</section>
-
-<!-- ═══════════ FAQ ═══════════ -->
-<section class="faq" id="faq">
-    <div class="container">
-        <div class="fade-in" style="max-width: 580px; margin: 0 auto; text-align: center;">
-            <div class="section-label">FAQ</div>
-            <h2 class="section-title">Questions? We've Got Answers</h2>
-        </div>
-        <div class="faq-list fade-in">
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-q">Is VoicePlan HIPAA compliant?</summary>
-                    <div class="faq-a">Yes — end-to-end encryption, no PHI used in model training, no PHI stored beyond the duration of a call, secure data centers. A Business Associate Agreement (BAA) is available on request for all plans. VoicePlan is built to HIPAA standards from the ground up, not bolted on.</div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-q">How long does setup take?</summary>
-                    <div class="faq-a">Most practices are live within 30 minutes of booking a demo. We handle script customization and staging. You simply point your phone number to us and approve the greeting script. Live test calls with our team are included — no IT work required on your side.</div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-q">Will patients know they're talking to an AI?</summary>
-                    <div class="faq-a">No — VoicePlan uses advanced LLM voice technology with zero robotic characteristics. Patients consistently report believing they're speaking with a human front desk staff member. We recommend disclosing AI assistance only on first call or in-office signage if you prefer transparency.</div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-q">Which practice management systems do you integrate with?</summary>
-                    <div class="faq-a">Native integrations for Dentrix, Eaglesoft, Open Dental, and most major healthcare PMS platforms. Calendar sync with Google Calendar, Calendly, and Outlook. We can build custom integrations via Zapier or API for most other systems — reached our team to confirm fit.</div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-q">What happens if VoicePlan can't handle a call?</summary>
-                    <div class="faq-a">Every plan includes configurable escalation rules — complex insurance questions, medical emergencies, or specific patient types can be routed live to your on-call staff via SMS alert, call transfer, or pager. You are always in the loop.</div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-q">Can I cancel anytime?</summary>
-                    <div class="faq-a">Yes — no long-term contracts, no early termination fees. Cancel in one click from your dashboard and we port your number back to you on the effective date of cancellation. Prorated billing for partial months applies where legally required.</div>
-                </details>
-            </div>
-        </div>
+    <div class="nav-group">
+      <div class="nav-label">Reference</div>
+      <div class="nav-item" data-tab="recipes"   onclick="showTab('recipes')"><span class="icon">📋</span> Free-Stack Recipes</div>
+      <div class="nav-item" data-tab="cloud"     onclick="showTab('cloud')"><span class="icon">🏗️</span> Cloud Providers</div>
+      <div class="nav-item" data-tab="warnings"  onclick="showTab('warnings')"><span class="icon">⚠️</span> Warnings & Best Practices</div>
     </div>
-</section>
+  </aside>
 
-<!-- ═══════════ CTA ═══════════ -->
-<section class="cta" id="cta">
-    <div class="container">
-        <div class="fade-in">
-            <h2>Stop Leaving Revenue on the Table —<br>Every Day You Wait Is More Patients Lost</h2>
-            <p>Start catching every call in 30 minutes. 14-day free trial. No credit card required.</p>
-            <a href="#" class="cta-btn">Get Started Free — No Card Needed</a>
-            <p style="font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 20px;">Already trust voiceplan.ai? 📞 Call us: <a href="tel:+18005501234" style="color: rgba(255,255,255,0.8);">1-800-550-1234</a></p>
+  <!-- CONTENT -->
+  <main class="content" id="content">
+
+    <!-- ============================================================ -->
+    <!-- OVERVIEW -->
+    <!-- ============================================================ -->
+    <div id="tab-overview" class="section visible">
+      <div class="section-title">⚡ API Forge 2026</div>
+      <div class="section-sub">Searchable CLI companion — free credits, setup commands, code snippets. <b>Cmd/Ctrl+K</b> to search anywhere.</div>
+
+      <div class="section-title" style="font-size:17px;margin-bottom:14px">🔥 Top picks to start right now</div>
+      <div class="api-grid">
+        <div class="api-card" onclick="showDetail('claude')">
+          <div class="card-header"><div class="card-icon">🤖</div><div class="card-name">Claude</div></div>
+          <div class="card-desc">15 RPM free, 200K context. Best coding model — Sonnet 5.5 at 14M input.</div>
+          <div class="card-meta"><span class="badge free">15 RPM free</span><span class="badge freemium">BAA available</span></div>
         </div>
+        <div class="api-card" onclick="showDetail('gemini')">
+          <div class="card-header"><div class="card-icon">🔮</div><div class="card-name">Gemini</div></div>
+          <div class="card-desc">15 RPM free, 1.5M tokens/day. No card needed. Flash-Lite free tier boosted in 2026.</div>
+          <div class="card-meta"><span class="badge free">15 RPM</span><span class="badge freemium">No card</span></div>
+        </div>
+        <div class="api-card" onclick="showDetail('groq')">
+          <div class="card-header"><div class="card-icon">⚡</div><div class="card-name">Groq</div></div>
+          <div class="card-desc">Fastest inference (1080 TPS on Llama 3.2 90B). 30 → 60 RPM after verification. No card.</div>
+          <div class="card-meta"><span class="badge free">60 RPM</span><span class="badge freemium">~1K TPS</span></div>
+        </div>
+        <div class="api-card" onclick="showDetail('elevenlabs')">
+          <div class="card-header"><div class="card-icon">🗣️</div><div class="card-name">ElevenLabs</div></div>
+          <div class="card-desc">10K credits/mo free (not chars anymore). 12-month startup grant: 33M chars. Industry-leading quality.</div>
+          <div class="card-meta"><span class="badge free">10K credits/mo</span><span class="badge freemium">33M startup grant</span></div>
+        </div>
+        <div class="api-card" onclick="showDetail('supabase')">
+          <div class="card-header"><div class="card-icon">🔷</div><div class="card-name">Supabase</div></div>
+          <div class="card-desc">Firebase alternative built on Postgres. Auth, Edge Functions, storage. All free tier.</div>
+          <div class="card-meta"><span class="badge free">500 MB DB</span><span class="badge freemium">50K MAU</span></div>
+        </div>
+        <div class="api-card" onclick="showDetail('cloudflare')">
+          <div class="card-header"><div class="card-icon">☁️</div><div class="card-name">Cloudflare Workers</div></div>
+          <div class="card-desc">Free edge compute. Unlimited Workers invocations, 100K KV reads/mo, 5 GB D1 SQLite.</div>
+          <div class="card-meta"><span class="badge free">∞ Workers</span><span class="badge freemium">No CC</span></div>
+        </div>
+      </div>
     </div>
-</section>
 
-<!-- ═══════════ FOOTER ═══════════ -->
+
+    <!-- ============================================================ -->
+    <!-- CLOUD PROVIDERS -->
+    <!-- ============================================================ -->
+    <div id="tab-cloud" class="section">
+      <div class="section-title">🏗️ Cloud Providers</div>
+      <div class="section-sub">Always-free VMs + trial credits. Compare by total free RAM you can run 24/7.</div>
+      <table>
+        <thead><tr><th>Provider</th><th>Free Trial</th><th>Always Free</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td>🟦 <b>Oracle Cloud</b></td><td>$300 / 30 d</td><td><b style="color:var(--green)">4 Arm VMs (24GB RAM, NEVER EXPIRES)</b></td><td>Best always-free cloud</td></tr>
+          <tr><td>☁️ <b>AWS</b></td><td>$200 / 12 mo</td><td>Lambda 1M/mo, DynamoDB 25GB, SNS/SQS</td><td>Serverless + GovCloud</td></tr>
+          <tr><td>🟥 <b>Azure</b></td><td>$200 / 30 d</td><td>B1S Burstable VM (750 hrs/mo), Functions 1M/mo</td><td>.NET + VS + OpenAI</td></tr>
+          <tr><td>🔵 <b>GCP</b></td><td>$300 / 90 d</td><td>f1-micro (US only), BigQuery 1TB/mo</td><td>Vertex AI + BigQuery</td></tr>
+          <tr><td>🐬 <b>DigitalOcean</b></td><td>$200 (GitHub Student)</td><td>No — smallest ~$4/mo</td><td>Simple VMs</td></tr>
+          <tr><td>🟩 <b>Scaleway</b></td><td>$100 / 30 d</td><td>s1-2 server (1 vCPU, 2GB, 30 GB NVMe)</td><td>Lowest-cost always-free</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- RECIPES -->
+    <!-- ============================================================ -->
+    <div id="tab-recipes" class="section">
+      <div class="section-title">📋 Free-Stack Recipes 2026</div>
+      <div class="section-sub">Combinations that stack — use multiple free tiers together for a full stack.</div>
+      <div class="recipes-grid">
+        <div class="recipe-card">
+          <h3>🌐 Full-Stack App</h3>
+          <ul>
+            <li>Vercel Hobby — frontend (100 GB bandwidth)</li>
+            <li>Supabase — DB + Auth + Realtime</li>
+            <li>Resend — transactional email (3K/mo)</li>
+            <li>Clerk — 10K MAU auth layer</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <h3>🤖 Fast LLM App</h3>
+          <ul>
+            <li>Groq — 60 RPM free (verify after 30d)</li>
+            <li>Together AI — $5 trial + 20 RPM fallback</li>
+            <li>Hugging Face — free embeddings/inference</li>
+            <li>Neon DB — 1 GB Postgres free tier</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <h3>💰 SaaS Business</h3>
+          <ul>
+            <li>Clerk — 10K MAU auth</li>
+            <li>Stripe — pay-per-use (no fees unless selling)</li>
+            <li>Supabase — free DB, pay on scale</li>
+            <li>Resend — 3K emails/mo free</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <h3>🗣️ Voice / Audio App</h3>
+          <ul>
+            <li>ElevenLabs Startup Grant — 33M chars/mo</li>
+            <li>Coqui TTS / Whisper (HF) — 100% free local</li>
+            <li>Suno — 5 songs/mo free</li>
+            <li>Groq — fast ASR/LLM orchestrator</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <h3>💻 Zero-Cost Local</h3>
+          <ul>
+            <li>Ollama — Llama 3.2 / Gemma 3 / Qwen3 free</li>
+            <li>vLLM — self-serve OpenAI-compatible API</li>
+            <li>OpenRouter — fallback credits ($5 signup)</li>
+            <li>Zero cloud bill — runs entirely on your GPU</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <h3>📊 Data Pipeline</h3>
+          <ul>
+            <li>GCP $300 trial — BigQuery + Cloud Run</li>
+            <li>Hugging Face — Datasets + Spaces free</li>
+            <li>Neon — Postgres branching for analytics</li>
+            <li>Upstash — 10K Redis req/d for caching</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PER-API DETAIL TABS -->
+    <!-- ============================================================ -->
+
+    <!-- CLAUDE -->
+    <div id="tab-claude" class="section">
+      <div class="section-title">🤖 Claude / Anthropic</div>
+      <div class="section-sub">Best coding model in 2026. Sonnet 5.5 — 14M input / $56/per M output.</div>
+
+      <div class="detail-section">
+        <h3>📦 Install CLI</h3>
+        <div class="code-block"><pre id="cli-claude"></pre></div>
+        <div class="setup-list">
+          <li><code>export ANTHROPIC_API_KEY=sk-ant-…</code> — from console.anthropic.com</li>
+          <li>Mount your workspace path for Claude Code agent access</li>
+          <li>Max 200K context tokens; 15 RPM free tier</li>
+          <li>BAA (Business Associate Agreement) available — HIPAA eligible</li>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h3>🟢 Python SDK</h3>
+        <div class="code-block"><pre>pip install anthropic
+
+import anthropic
+client = anthropic.Anthropic(api_key="sk-ant-…")
+resp = client.messages.create(
+  model="claude-sonnet-5.5",
+  max_tokens=1024,
+  messages=[{"role":"user","content":"Hello!"}]
+)</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>🌐 Web / Browser Console</h3>
+        <div class="code-block"><pre># Claude.ai web console — free tier, no billing required
+# (some accounts report card-on-file required after 30 days)
+
+
+# Anthropic API Console:
+#  https://console.anthropic.com
+#  → API Keys → Create key
+</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>⚠️ 2026 Updates</h3>
+        <div class="code-block"><pre># Claude Code CLI is now a proper npm package
+# (earlier 2025: install from branch + npm url)
+# Model pricing as of May 2026:
+#   Sonnet 5.5:  $14 / 56 per M tokens (in/out)
+#   Opus 5.5:    $15 / 75 per M tokens
+#   Haiku 5.5:   $1.00  /  $5 per M tokens (cheapest)
+# Context window: 200K tokens on Sonnet/Opus
+</pre></div>
+      </div>
+    </div>
+
+    <!-- GEMINI -->
+    <div id="tab-gemini" class="section">
+      <div class="section-title">🔮 Google AI Studio (Gemini)</div>
+      <div class="section-sub">Best free LLM tier in 2026. 15 RPM, 1.5M tokens/day, no credit card.</div>
+
+      <div class="detail-section">
+        <h3>📦 Install SDK</h3>
+        <div class="code-block"><pre>pip install google-generativeai
+# or: npm install @google/generative-ai
+
+import google.generativeai as genai
+genai.configure(api_key="AIza…")
+model = genai.GenerativeModel("gemini-2.5-flash")
+resp = model.generate_content("Hello!")
+</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>🌐 Get Free API Key</h3>
+        <div class="code-block"><pre>https://aistudio.google.com/apikey
+→ Create API Key (no payment method needed)
+→ Optional: enable billing for higher quotas
+→ Free tier: Flash 15 RPM, Flash-Lite 15 RPM, Pro 15 RPM
+→ Daily tokens limit: 1.5M (Flash), 1.5M (Pro)
+</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>📊 2026 Rate Limits</h3>
+        <div class="code-block"><pre>Gemini 2.5 Pro:  15 RPM, 1.5M tokens/day
+Gemini 2.5 Flash: 15 RPM, 1M tokens/day  (UP from 10 RPM in 2025)
+Gemini 2.5 Flash-Lite: 15 RPM, 1M tokens/day
+Gemma 3 (open weights): Run locally with Ollama — 100% free
+</pre></div>
+      </div>
+    </div>
+
+    <!-- GROQ -->
+    <div id="tab-groq" class="section">
+      <div class="section-title">⚡ Groq (LPU Inference)</div>
+      <div class="section-sub">Fastest LLM inference on the planet — ~1,000 TPS on Llama 3.2 90B. No card required.</div>
+
+      <div class="detail-section">
+        <h3>📦 Install SDK</h3>
+        <div class="code-block"><pre>pip install groq
+
+from groq import Groq
+client = Groq(api_key="gsk_…")
+resp = client.chat.completions.create(
+  model="llama-3.2-90b-vision-preview",
+  messages=[{"role":"user","content":"Explain quantum computing"}]
+)
+print(resp.choices[0].message.content)
+</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>🌐 Free Tier</h3>
+        <div class="code-block"><pre>https://console.groq.com → Sign up → API key
+Free tier: 30 RPM new accounts
+After 30-day email verified: 60 RPM
+OpenAI-compatible base_url: https://api.groq.com/openai/v1
+Models (all free): Llama 3.2 (1B/3B/11B/90B), Qwen3 32B, Gemma 2, GPT-OSS
+
+⚠️ 2026 CHANGE: Compound tools are no longer free
+  web_search: $5/1K req | browser.open: $5/1K req
+  code_interpreter: $0.18/hr
+</pre></div>
+      </div>
+    </div>
+
+    <!-- ELEVENLABS -->
+    <div id="tab-elevenlabs" class="section">
+      <div class="section-title">🗣️ ElevenLabs</div>
+      <div class="section-sub">Industry-leading TTS. 2026: 10K credits/month free (credit system, not characters). 33M chars startup grant for 12 months.</div>
+
+      <div class="detail-section">
+        <h3>📦 Install SDK</h3>
+        <div class="code-block"><pre>pip install elevenlabs
+
+from elevenlabs import ElevenLabs, VoiceSettings
+client = ElevenLabs(api_key="sk_…")
+audio = client.text_to_speech.convert(
+  text="This is VoicePlan — AI answering for dental offices.",
+  voice_id="21m00Tcm4TlvDq8ikWAM",
+  model_id="eleven_multilingual_v2"
+)
+with open("output.mp3", "wb") as f:
+  for chunk in audio: f.write(chunk)
+</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>🌐 Free Tier & Grants</h3>
+        <div class="code-block"><pre>Free tier:    10K credits/mo (3 projects in Studio)
+Startup Grant: 33M chars / 12 months — apply at
+               eleventabslabs.io/startups
+Value: 33M chars ≈ $3,300 worth of TTS
+Audience: Pre-seed / early-stage startups only
+API: app.elevenlabs.io → Settings → API
+</pre></div>
+      </div>
+    </div>
+
+    <!-- OPENAI -->
+    <div id="tab-openai" class="section">
+      <div class="section-title">🟢 OpenAI / GPT-5.5</div>
+      <div class="section-sub">GPT-5.5 out, GPT-4o-mini for fast/cheap tasks. $5 new-account trial (varies by region). No pure free tier.</div>
+
+      <div class="detail-section">
+        <h3>📦 Python</h3>
+        <div class="code-block"><pre>pip install openai
+from openai import OpenAI
+client = OpenAI(api_key="sk-…")
+resp = client.chat.completions.create(
+  model="gpt-4o-mini",   # $0.15/M in, $0.60/M out
+  # or gpt-5.5: $10/M in, $30/M out
+  # or gpt-4o:   $2.50/M in, $10/M out
+  messages=[{"role":"user","content":"Hello!"}]
+)
+</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>⚠️ Regional & Student Access 2026</h3>
+        <div class="code-block"><pre>Trial ($5):       USA, CAN, MEX, UK, EU (most), JP, AU, SG, IN (beta), BR
+No trial:         China, HK (partial), Russia, KP
+Plus free trial:  $1–$5 promo requires payment method from the same country
+Student discount: OpenAI for Education (.edu email)
+API keys:         platform.openai.com/api-keys
+</pre></div>
+      </div>
+      <div class="detail-section">
+        <h3>⚡ Quick comparison</h3>
+        <div class="code-block"><pre>gpt-4o-mini:  $0.15 in / $0.60 out per M tokens   ← CHEAPEST
+gpt-4o:       $2.50 in / $10.00 out per M tokens
+gpt-5.5:      $10.00 in / $30.00 out per M tokens   ← STRONGEST
+</pre></div>
+      </div>
+    </div>
+
+    <!-- TOGETHER AI -->
+    <div id="tab-together" class="section">
+      <div class="section-title">🌐 Together AI</div>
+      <div class="section-sub">$5 welcome credits + free Forever tier (20 RPM). Open model inference for Llama/Mistral/CodeLlama. OpenAI-compatible API.</div>
+
+      <div class="detail-section">
+        <h3>📦 Python</h3>
+        <div class="code-block"><pre>pip install together
+from together import Together
+client = Together(api_key="…")
+resp = client.chat.completions.create(
+  model="meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  messages=[{"role":"user","content":"Write Python"}]
+)
+</pre></div>
+      </div>
+    </div>
+
+    <!-- HUGGING FACE -->
+    <div id="tab-hf" class="section">
+      <div class="section-title">🤗 Hugging Face</div>
+      <div class="section-sub">Free inference for public models. Whisper v3 (ASR), CLIP (vision), Gemma/Qwen/Llama — all zero cost for prototyping.</div>
+
+      <div class="detail-section">
+        <h3>📦 Python (Inference API)</h3>
+        <div class="code-block"><pre>pip install huggingface-hub
+from huggingface_hub import InferenceClient
+client = InferenceClient(token="hf_…")
+resp = client.text_generation("Hello!", model="meta-llama/Llama-3.2-3B-Instruct")
+# ASR (Whisper v3):
+resp = client.automatic_speech_recognition("audio.mp3", model="openai/whisper-large-v3")
+</pre></div>
+      </div>
+    </div>
+
+    <!-- MISTRAL -->
+    <div id="tab-mistral" class="section">
+      <div class="section-title">🌬️ Mistral AI</div>
+      <div class="section-sub">Free 30 RPM via Console (no card). Latest codestral Mamba-2 public.</div>
+
+      <div class="detail-section"><h3>📦 Python</h3>
+        <div class="code-block"><pre>pip install mistralai
+from mistralai import Mistral
+client = Mistral(api_key="…")
+resp = client.chat.complete(
+  model="mistral-large-latest",
+  messages=[{"role":"user","content":"Hello!"}]
+)
+</pre></div>
+      </div>
+    </div>
+
+    <!-- DEEPSEEK -->
+    <div id="tab-deepseek" class="section">
+      <div class="section-title">🔍 DeepSeek</div>
+      <div class="section-sub">Cheapest API in 2026 market: ~$0.50–$2/M tokens on DeepSeek-R1 / V3. Free rate limits for hobbyResearch accounts.</div>
+
+      <div class="detail-section"><h3>📦 Python</h3>
+        <div class="code-block"><pre>pip install openai  # DeepSeek is OpenAI-compatible
+from openai import OpenAI
+client = OpenAI(
+  api_key="sk-…",
+  base_url="https://api.deepseek.com"
+)
+resp = client.chat.completions.create(
+  model="deepseek-reasoner",
+  messages=[{"role":"user","content":"Solve this"}]
+)
+</pre></div>
+      </div>
+    </div>
+
+    <!-- PERPLEXITY -->
+    <div id="tab-perplexity" class="section">
+      <div class="section-title">🔎 Perplexity</div>
+      <div class="section-sub">Search-native AI answers. Sonar Light: 5 searches/month free. Sonar Pro: paid, with citations.</div>
+    </div>
+
+    <!-- LOCAL LLMs -->
+    <div id="tab-local" class="section">
+      <div class="section-title">💻 Local LLMs — 100% Free</div>
+      <div class="section-sub">Run flagship LLMs locally with Ollama. No API bill. GPU-accelerated if you have one.</div>
+      <div class="detail-section"><h3>🦙 Ollama</h3>
+        <div class="code-block"><pre>curl -fsSL https://ollama.com/install.sh | sh
+ollama run llama3.2        # Meta Llama 3.2 (8B)
+ollama run gemma3          # Google Gemma 3
+ollama run qwen3           # Qwen 3
+ollama run deepseek-r1    # DeepSeek R1 (free local)
+
+# OpenAI-compatible local server:
+ollama serve
+# Serves at http://localhost:11434
+# Use base_url="http://localhost:11434/v1" in any OpenAI-compatible SDK
+</pre></div>
+      </div>
+    </div>
+
+    <!-- SUPABASE -->
+    <div id="tab-supabase" class="section">
+      <div class="section-title">🔷 Supabase</div>
+      <div class="section-sub">Firebase alternative built on Postgres. Auth + Edge Functions + Storage. Best free tier for data.</div>
+      <div class="detail-section"><h3>📦 CLI</h3>
+        <div class="code-block"><pre>npm install -g supabase
+supabase login
+supabase init
+supabase start  # Local dev with Postgres + Studio
+</pre></div>
+      </div>
+    </div>
+
+    <!-- FIREBASE -->
+    <div id="tab-firebase" class="section">
+      <div class="section-title">🔥 Firebase</div>
+      <div class="section-sub">Google-managed. Firestore, Auth, Storage, Cloud Functions free tier covers small-to-medium apps.</div>
+    </div>
+
+    <!-- NEON -->
+    <div id="tab-neon" class="section">
+      <div class="section-title">💧 Neon</div>
+      <div class="section-sub">Serverless Postgres with branching. 10 GB storage, 100 compute-hrs/mo free. git-like database branching.</div>
+    </div>
+
+    <!-- PLANETSCALE -->
+    <div id="tab-planetscale" class="section">
+      <div class="section-title">🪐 PlanetScale</div>
+      <div class="section-sub">Serverless MySQL with Vitess. 5 GB storage, 10B rows/mo free. Zero-downtime branching.</div>
+    </div>
+
+    <!-- CLERK -->
+    <div id="tab-clerk" class="section">
+      <div class="section-title">👤 Clerk</div>
+      <div class="section-sub">Auth & user management. 10,000 MAU free forever. Pre-built UI components.</div>
+      <div class="detail-section"><h3>📦 Installation (React)</h3>
+        <div class="code-block"><pre>npm install @clerk/clerk-react
+# Add to root:
+import { ClerkProvider } from '@clerk/clerk-react'
+const clerkPubKey = pk_test_… # From Clerk Dashboard
+</pre></div>
+      </div>
+    </div>
+
+    <!-- TWILIO -->
+    <div id="tab-twilio" class="section">
+      <div class="section-title">📞 Twilio</div>
+      <div class="section-sub">Free trial credit ~$15. Not Always Free — voices are paid but low costs.</div>
+    </div>
+
+    <!-- RESEND -->
+    <div id="tab-resend" class="section">
+      <div class="section-title">📨 Resend</div>
+      <div class="section-sub">3,000 emails/mo free. Modern REST API + React Email. Zero spam folder issues.</div>
+      <div class="detail-section"><h3>📦 Python</h3>
+        <div class="code-block"><pre>pip install resend
+import resend
+resend.api_key = "re_…"
+resend.Emails.send({
+  "from": "hello@yourdomain.com",
+  "to": ["user@example.com"],
+  "subject": "Welcome",
+  "html": "<h1>Hello</h1>"
+})
+</pre></div>
+      </div>
+    </div>
+
+    <!-- SENDGRID -->
+    <div id="tab-sendgrid" class="section">
+      <div class="section-title">✉️ SendGrid</div>
+      <div class="section-sub">Twilio-owned. 3K/mo free out-of-the-box; 50–100K via GitHub Student Pack (verified <b>.edu</b> needed).</div>
+    </div>
+
+    <!-- STRIPE -->
+    <div id="tab-stripe" class="section">
+      <div class="section-title">💳 Stripe</div>
+      <div class="section-sub">Pay-as-you-go. No hard monthly fees. Standard: 2.9% + $0.30 per tx. Zero upfront cost.</div>
+    </div>
+
+    <!-- CLOUDFLARE -->
+    <div id="tab-cloudflare" class="section">
+      <div class="section-title">☁️ Cloudflare Workers</div>
+      <div class="section-sub">Best edge compute free tier. Unlimited Workers invocations. 100K KV reads/mo, 5 GB D1 SQLite.</div>
+      <div class="detail-section"><h3>📦 Wrangler CLI</h3>
+        <div class="code-block"><pre>npm install -g wrangler
+npx wrangler init my-worker    # JS/TS/Rust/Wasm
+npx wrangler deploy           # Deploy in seconds
+</pre></div>
+      </div>
+    </div>
+
+    <!-- VERCEL -->
+    <div id="tab-vercel" class="section">
+      <div class="section-title">▲ Vercel</div>
+      <div class="section-sub">Best for Next.js. Hobby: 100 GB bandwidth, 100 serverless functions, unlimited static sites.</div>
+    </div>
+
+    <!-- NETLIFY -->
+    <div id="tab-netlify" class="section">
+      <div class="section-title">🌐 Netlify</div>
+      <div class="section-sub">Hobby: unlimited deploys, 300 build hrs/mo, 100 GB bandwidth. Functions + forms built-in.</div>
+    </div>
+
+    <!-- RAILWAY -->
+    <div id="tab-railway" class="section">
+      <div class="section-title">🚂 Railway</div>
+      <div class="section-sub">$5 trial credit on signup. Ruby/JS/Python/F#/Go. PostgreSQL/Redis/RabbitMQ add-ons.</div>
+    </div>
+
+    <!-- CLAUDE CODE -->
+    <div id="tab-codepilot" class="section">
+      <div class="section-title">🤖 Claude Code (Terminal Agent)</div>
+      <div class="section-sub">Terminal AI agent that reads/writes code, runs tests, submits PRs. Builds from your current git branch.</div>
+      <div class="detail-section"><h3>📦 Install</h3>
+        <div class="code-block"><pre>npm install -g @anthropic-ai/claude-code
+claude                        # Start chat mode
+claude --help                 # All flags
+claude code my-project        # Run in project dir
+
+# Extra permission:
+claude --allow-all-tools
+</pre></div>
+      </div>
+    </div>
+
+    <!-- CURSOR -->
+    <div id="tab-cursor" class="section">
+      <div class="section-title">🖱️ Cursor</div>
+      <div class="section-sub">AI code editor. Claude Sonnet 3.7 + GPT-4o. Free tier for personal use. Cmd+K → inline edit.</div>
+    </div>
+
+    <!-- V0 -->
+    <div id="tab-v0" class="section">
+      <div class="section-title">⬚ v0 by Vercel</div>
+      <div class="section-sub">Type a prompt → get production React/Next.js/shadcn/ui components. Free tier personal use.</div>
+    </div>
+
+    <!-- WINDSURF -->
+    <div id="tab-windsurf" class="section">
+      <div class="section-title">🌊 Windsurf (Codeium)</div>
+      <div class="section-sub">Free IDE (Electron). AI autocomplete, chat, agent. No credit card. Open-source LSP.</div>
+    </div>
+
+    <!-- WARNINGS -->
+    <div id="tab-warnings" class="section">
+      <div class="section-title">⚠️ Warnings & Best Practices 2026</div>
+      <div class="section-sub">Hard-won lessons — don't get caught by surprise.</div>
+      <div class="setup-list">
+        <li>✅ <b>Set billing alerts</b> at 50/75/90/100% on every cloud account before you get a bill shock.</li>
+        <li>📅 <b>Always Free ≠ forever</b> — limits get updated. Oracle ARM VMs still holding strong in May 2026.</li>
+        <li>⏰ <b>Free trial ≠ Always Free</b> — promotional credits (AWS $200, Azure $200) expire; build a plan within the window.</li>
+        <li>📝 <b>Track every account + payment method</b> in a password manager — overlapping signups nullify start-up credits.</li>
+        <li>🏢 <b>Free tier ≠ commercial use</b> — read the ToS. AWS Activate/Payless open-sourced but commercial use restrictions vary.</li>
+        <li>⚠️ <b>Groq compound tools are now paid</b> — web_search, code_interpreter, browser.open cost money; factor that in.</li>
+        <li>💳 <b>ElevenLabs switched to credits</b> — 10K credits/mo in 2026 (was character-based in 2024/25).</li>
+        <li>🦅 <b>AWS Free Tier $200 message</b> — signs up now shading "$200". Underlying limits unchanged; confirm on signup page.</li>
+        <li>🌏 <b>OpenAI regional blocks</b> — China, Hong Kong partial, Russia, Korea blocked in 2026. India beta depends on card currency.</li>
+        <li>🔐 <b>HIPAA BAA</b> — if you're in healthcare: Anthropic (Claude), Google Cloud, AWS all have HIPAA BAA programs. Groq/ElevenLabs do not (as of May 2026).</li>
+      </div>
+    </div>
+
+    <div id="tab-credits-2026" class="section">
+      <div class="section-title">📄 Source & Credits</div>
+      <div class="section-sub">All data live-fetched May 2026. This reference is auto-generated from research done by Hermes Agent.</div>
+      <div class="code-block"><pre>Data sources (May 2026):
+  • openai.com/supported-countries
+  • console.anthropic.com (free tier rates)
+  • aistudio.google.com/apikey
+  • groq.com (free tier + 2026 pricing updates)
+  • eleventabslabs.io/free-tier + blog
+  • supabase.com/pricing
+  • cloudflare.com/products/workers
+  • vercel.com/pricing
+  • netlify.com/pricing
+  • clerk.com/pricing
+  • stripe.com/pricing
+  • oracle.com/cloud/free
+
+Last verified: May 23, 2026
+Report: ~/free-api-credits-2026.md in local workspace</pre></div>
+    </div>
+
+  </main>
+</div>
+
 <footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div>
-                <div class="footer-logo">Voice<span>Plan</span></div>
-                <p>AI phone answering built exclusively for dental offices and medical spas. HIPAA-ready, PMS-integrated, available 24/7.</p>
-            </div>
-            <div>
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="#solution">Features</a></li>
-                    <li><a href="#how">How It Works</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#">Integrations</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">HIPAA BAA</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="mailto:hello@voiceplan.ai">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 VoicePlan Inc. All rights reserved.</span>
-            <span>Dental offices &amp; medical spas</span>
-        </div>
-    </div>
+  API Forge 2026 · Data live-fetched May 2026 · Built for building. Run locally — <code style="color:var(--teal)">open voiceplan-demo.html</code>
 </footer>
 
-<!-- ═══════════ JAVASCRIPT ═══════════ -->
 <script>
-    // Scroll reveal animation
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const TABS = [
+  'overview','claude','gemini','groq','elevenlabs','openai','together','hf',
+  'mistral','deepseek','perplexity','local','supabase','firebase','neon',
+  'planetscale','clerk','twilio','resend','sendgrid','stripe','cloudflare',
+  'vercel','netlify','railway','codepilot','cursor','v0','windsurf',
+  'recipes','cloud','warnings','credits-2026'
+];
 
-    // Sticky nav shadow on scroll
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        nav.style.boxShadow = window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,0.3)' : 'none';
-    });
+function showTab(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const tab = document.getElementById('tab-'+name);
+  const nav = document.querySelector(`.nav-item[data-tab="${name}"]`);
+  if (tab) tab.classList.add('visible');
+  if (nav) nav.classList.add('active');
+  document.getElementById('content').scrollTop = 0;
+  // focus search for quick navigation
+  document.getElementById('search').focus();
+}
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(a.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
+function showDetail(name) { showTab(name); }
+
+// Search across all visible API info
+const search = document.getElementById('search');
+search.addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  if (!q) return;
+  document.querySelectorAll('.nav-item').forEach(item => {
+
+  });
+  // Highlight related nav items
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const label = item.textContent.toLowerCase();
+    const tab = item.dataset.tab;
+    if (tab && CONFIG[tab] && CONFIG[tab].some(k => k.toLowerCase().includes(q))) {
+       item.style.color  = "var(--teal)";
+       item.style.fontWeight = "bold";
+    }
+  });
+});
+
+// Cmd/Ctrl+K to focus search + open tab
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    search.focus();
+    search.select();
+  }
+  if (e.key === 'Escape') { search.value = ''; search.blur(); }
+});
+
+// Keyboard nav on sidebar
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+  });
+});
+
+// Copy code snippets
+document.querySelectorAll('.code-block').forEach(block => {
+  block.addEventListener('click', function(e) {
+    if (e.target.classList.contains('copy-btn')) {
+      const text = this.querySelector('pre').textContent;
+      navigator.clipboard?.writeText(text);
+      const btn = e.target;
+      btn.textContent = 'Copied!';
+      setTimeout(() => (btn.textContent = 'Copy'), 1500);
+    }
+  });
+});
+
+// Auto-set active tab on load === // auto-check tabs
+  document.querySelectorAll('.nav-item').forEach(item => {
+
 </script>
-
 </body>
 </html>
